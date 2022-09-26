@@ -1,0 +1,46 @@
+%%
+%%
+%% Comandos
+%%
+%% \nomeAluno{<seu nome>}
+%%
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[brazilian]{babel}
+
+% Graficos
+\RequirePackage{graphicx}
+\usepackage[inkscapelatex=false]{svg}
+
+% Sobre a formataão
+\RequirePackage{authblk}
+\RequirePackage{indentfirst}
+
+\graphicspath{Imagens/}
+
+% COOP WRITING
+\usepackage[editing]{Estilos/coop-writing}
+\cwnamedef{xexeo}{red}{Xexéo}
+\RequirePackage{marvosym}
+\cwsetcommwarn{\Lightning}
+
+
+
+
+\RequirePackage{enumitem}
+\RequirePackage{outlines}
+%\setlist{nolistsep}
+\setlist{nosep}
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
+\renewcommand{\labelitemiii}{$\diamond$}
+\renewcommand{\labelitemiv}{$\circ$}
+
+\newcommand{\edctitle}[2][logopesc]{%
+\title{\includegraphics[width=.5\textwidth]{#1}%
+\\{\Large\textbf{#2}}
+}%
+}%
+
+
+

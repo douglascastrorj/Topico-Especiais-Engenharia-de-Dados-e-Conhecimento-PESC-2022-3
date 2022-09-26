@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{Estilos/modeloTEEDC}
+
+% Escolha um logo: JOGOS logoludes BMT - logoline
+%\edctitle[Imagens/logoline]{Título do Trabalho}
+%\edctitle[Imagens/logoludes]{Título do Trabalho}
+\edctitle[Imagens/logopesc]{Título do Trabalho}
+
+% Coloque seu nome aqui
+\author[$\ddag$]{Nome Aluno}
+%\author[$\ddag$]{Geraldo Xexéo}
+\affil[$\ddag$]{Programa de Engenharia de Sistemas e Computação \\
+COPPE -- Universidade Federal do Rio de Janeiro\\
+Brasil}
+
+
+% Bibliografia deve ser construida com um arquivo 
+% no formato BibLaTeX (levemente diferente do BibTeX)
+\usepackage[ citestyle=authoryear,articlein=false,
+style=ext-authoryear-comp
+,natbib=true]{biblatex}
+% pode simplesmente trocar o nome do seu arquivo aqui
+\addbibresource{bibs/referencias.bib}
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,colorlinks = false}
+
+\begin{document}
+
+\maketitle
+
+% seções padrão
+\input{Secoes/00resumo.tex}
+\input{Secoes/01introducao.tex}
+\input{Secoes/02revisao.tex}
+\input{Secoes/03trabalhoscorrelatos.tex}
+\input{Secoes/04proposta.tex}
+\input{Secoes/05experimentos.tex}
+\input{Secoes/06analisedosresultados.tex}   
+\input{Secoes/07conclusão.tex}
+
+\nocite{*}
+\printbibliography
+
+\end{document}

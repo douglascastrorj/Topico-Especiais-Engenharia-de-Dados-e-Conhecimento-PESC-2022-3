@@ -8,13 +8,13 @@ propostas na literatura como também a qualidade dos resultados obtidos por este
 
 Em \cite{oshikawa2020} os autores conduziram uma pesquisa sobre processamento de linguagem natural para detecção de notícias falsas em que eles forneceram uma visão geral dos esforços de pesquisa para detecção de notícias falsas e uma comparação sistemática de suas definições de tarefas, conjuntos de dados, construção de modelos, e performances. Em suma, suas contribuições gerias foram as seguintes: \\
 
-\begin{itemize}
-    \item Forneceram uma revisão das soluções de processamento de linguagem natural para detecção atumática de notícias falsas.
+\begin{enumerate}
+    \item Fornecer uma revisão das soluções de processamento de linguagem natural para detecção atumática de notícias falsas.
     
-    \item Analisaram sistematicamente como a detecção de notícias falsas estão alinhadas com as tarefas de \textit{NLP} existentes e discutiram as suposições e questões notáveis para diferentes fórmulações do problema;
+    \item Analisar sistematicamente como a detecção de notícias falsas estão alinhadas com as tarefas de \textit{NLP} existentes e discutiram as suposições e questões notáveis para diferentes fórmulações do problema;
     
-    \item Categorizaram e resumiram os \textit{datasets} disponíveis, abordagens de \textit{NLP} e resultados, fornecendo experiências em primeira mão e introduções acessíveis para novos pesquisadores interessado neste problema.
-\end{itemize}
+    \item Categorizar e resumir os \textit{datasets} disponíveis, abordagens de \textit{NLP} e resultados, fornecendo experiências em primeira mão e introduções acessíveis para novos pesquisadores interessado neste problema.
+\end{enumerate}
 
 \subsubsection{Problemas Relacionados a detecção de \textit{fake news}}
 
@@ -41,4 +41,59 @@ Existem diferentes tipos de estratégias de rotular ou avaliar a detecção de \
 \textbf{Regressão} A Detecção de \textit{fake news} também pode ser formulada como uma tarefa de regressão, onde a saída será uma pontuação numérica que representa a veracidade da informação. Esta abordagem é utlizada por \cite{nakashole2014}. Geralmente, a avaliação é feita através do calculo da diferença entre as pontuações preditas e o piso da pontuação de veracidade ou então usando, \textit{Correlações de Pearson/Spearman}. No entanto, uma vez que os conjuntos de dados disponíveis possuem pontuações discretizadas de veracidade, o desafio aqui é como converter os rótulos discretos para pontuações méricas continuas. \\
 
 
-\subsection{Próximo artigo}
+\subsection{Social Media and Fake News in the 2016 Election}
+
+\subsubsection{Definição}
+
+\cite{allcot2017} Definiram "\textit{fake news}" como artigos que são intencionalmente e verificavelmente falsos, e podem enganar os leitores. Esta definição inclui artigos fabricados intencionalmentes por websites como por exemplo \textit{denverguardian.com} como também artigos oriundos de \textit{websites} satíricos que podem ser mal interpretados como fatuais, especialmente quando vistos isolados nas redes sociais como no \textit{Twitter} ou \textit{Facebook}. Esta definição exclui diversos "parentes próximos" de \textit{fake news} como por exemplo:
+
+\begin{enumerate}
+    \item Erros não intencionais de relatórios;
+    \item Rumores que não se originam de uma determinada notícia;
+    \item Teorias da conspiração (estas são, por definição, difíceis de verificar como verdadeiras ou falsas, e são tipicamente originadas por pessoas que acreditam que elas sejam verdadeiras);
+    \item Sátira, que dificilmente será interpretado erroneamente como fatual;
+    \item Declarações falsas de políticos;
+    \item Relatórios que são enviesados ou enganosos, mas não totalmente falsos.
+\end{enumerate}
+
+
+\subsubsection{Quem produz \textit{fake news}?}
+
+Parecem existir duas motivações principais para disseminação de \textit{fake news}. A primeira é pecuniária: artigos de notícias que se tornam virais nas mídias sociais podem atrair anúncios significativos aumentar a receita quando os usuários clicam no site original. Esta parece ter sido a principal motivação para a maioria dos produtores cujas identidades foram reveladas. A segunda motivação é ideológica. Alguns provedores de notícias falsas procuram avançar os candidatos que preferem.
+
+
+\subsubsection{Um Modelo de \textit{Fake News}}
+
+De forma mais ampla, como \textit{fake news} diferem de dados tendenciosos ou enviesados? é uma forma inócua de entretenimento, como filmes de ficção ou romances? Ou têm maiores custos sociais? 
+
+Para responder a estas pergntas, \cite{allcot2017} esboçaram um modelo baseado de demanda por notícias baseado em um modelo desenvolvido formalmente em \cite{gentzkow2016}. \\
+
+Existem dois possíveis estados não observados do mundo, que podem representar se um candidato de esquerda ou de direita terá melhor desempenho no cargo. Empresas de mídia recebem sinais que são informativos sobre o estado verdadeiro e podem diferir na
+precisão desses sinais. Também podemos imaginar que as empresas podem fazer investimentos dispendiosos para aumentar a precisão desses sinais. Cada empresa tem uma estratégia de relatórios que mapeia desde os sinais que recebe até as notícias que publica. Empresas pode decidir relatar os sinais com veracidade ou, alternativamente, adicionar viés aos relatórios. \\
+
+No modelo proposto, os consumidores devem escolher uma ação, que poderia
+representam defender ou votar em um candidato, e recebem benefícios privados se
+eles escolhem o candidato que prefeririam se estivessem plenamente informados. Segundo,
+consumidores podem derivar utilidade psicológica de ver relatórios que são consistentes
+com suas ideologias. Os consumidores escolhem as empresas das quais consumirão notícias
+para maximizar sua própria utilidade esperada. Eles então usam o conteúdo das notícias que consumiram para formar um conceito sobre o estado do mundo. \\
+
+Nesse modelo, dois incentivos distintos podem levar as empresas a distorcer seus relatórios na direção das ideologias dos consumidores. Primeiro, quando o feedback sobre o verdadeiro estado é limitado,
+consumidores racionais julgarão uma empresa de melhor qualidade quando seus relatórios estiverem mais próximos
+de suas ideologias. Em segundo lugar, os consumidores podem preferir relatórios que confirmem suas ideologias. \\
+
+Produtores de notícias falsas são empresas com duas características distintas. Primeiro, eles não fazem
+investimento em relatórios precisos, de modo que seus sinais subjacentes não sejam correlacionados com
+o verdadeiro estado. Em segundo lugar, eles não tentam construir uma reputação de qualidade para longo prazo, mas sim maximizar os lucros de curto prazo de atrair cliques em um determinado período. \\
+
+Adicionar produtores de notícias falsas a um mercado tem vários custos sociais potenciais. Primeiro,
+consumidores que confundem uma saída falsa com uma legítima têm crenças menos precisas
+e são piores por esse motivo. Em segundo lugar, essas crenças menos precisas podem reduzir
+externalidades sociais positivas, minando a capacidade do processo democrático de
+selecionar candidatos de alta qualidade. Terceiro, os consumidores também podem se tornar mais céticos
+de produtores legítimos de notícias, na medida em que se tornam difíceis de distinguir
+de produtores de notícias falsas. Quarto, esses efeitos podem ser reforçados em equilíbrio por
+respostas do lado da oferta: uma demanda reduzida por relatórios de alta precisão e baixo viés
+reduziria os incentivos para investir em relatórios precisos e sinais de relatórios com veracidade.
+Esses efeitos negativos sobrepõem-se diante de qualquer ganho de bem-estar que surja dos consumidores
+que gostam de ler notícias falsas consistentes com seus antecedentes.

@@ -30,3 +30,15 @@ A respeito de problemas relacionados a detecção automática de \textit{fake ne
 
 \textbf{\textit{Sentiment Analysis}} A análise de sentimentos é a tarefa de extrair emoções, como impressão favorável ou desfavorável dos clientes de um restaurante. Diferente da detecção de boatos e de notícias falsas, a análise de sentimento não é fazer uma verificação objetiva de alegações, mas para analisar as emoções pessoais. \\
 
+
+\subsubsection{Formulações das tarefas}
+
+Existem diferentes tipos de estratégias de rotular ou avaliar a detecção de \textit{fake news}. Na maior parte dos estudos, a Detecção de \textit{Fake News} é formulada como um problema de classificão ou de regressão, entretanto a abordagem do problema de classificação é mais frequentemente utilizada. \\
+
+\textbf{Classificação} A maneira mais comum de formular o problema de detecção de \textit{fake news} é como um problema de classificação binária. Todavia, categorizar todas as notícias dentro de apenas duas classes (\textit{fake} ou \textit{real}) é difícil devido a existência de casos em que uma notícia pode ser parcialmente verdadeira e, simultâneamente, parcialmente falsa. Para endereçar este problema, acrescentar classes adcionais é uma prática comum. Principalmente, uma categoria para \textit{fake news} que não são  completamente verdadeiras ou completamente falsas, ou então são inseridos categorias para representar diferentes graus de veracidade que as notícias podem conter. \\
+
+
+\textbf{Regressão} A Detecção de \textit{fake news} também pode ser formulada como uma tarefa de regressão, onde a saída será uma pontuação numérica que representa a veracidade da informação. Esta abordagem é utlizada por \cite{nakashole2014}. Geralmente, a avaliação é feita através do calculo da diferença entre as pontuações preditas e o piso da pontuação de veracidade ou então usando, \textit{Correlações de Pearson/Spearman}. No entanto, uma vez que os conjuntos de dados disponíveis possuem pontuações discretizadas de veracidade, o desafio aqui é como converter os rótulos discretos para pontuações méricas continuas. \\
+
+
+\subsection{Próximo artigo}

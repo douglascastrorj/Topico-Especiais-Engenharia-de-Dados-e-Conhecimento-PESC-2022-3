@@ -2,7 +2,7 @@
 
 Nesta seção, serão discutidos alguns trabalhos relacionados ao tema de
 categorização fake news de modo a entender quais são abordagens que estão sendo
-propostas na literatura como também a qualidade dos resultados obtidos por estes.
+propostas na literatura, a qualidade dos resultados obtidos por estes, como também, os possíveis impactos sociais, políticos e econômicos que podem ser causados pela disseminação desse tipo de conteúdo.
 
 \subsection{\textit{A Survey on Natural Language Processing for Fake News Detection}}
 
@@ -97,3 +97,81 @@ respostas do lado da oferta: uma demanda reduzida por relatórios de alta precis
 reduziria os incentivos para investir em relatórios precisos e sinais de relatórios com veracidade.
 Esses efeitos negativos sobrepõem-se diante de qualquer ganho de bem-estar que surja dos consumidores
 que gostam de ler notícias falsas consistentes com seus antecedentes.
+
+
+\subsection{\textit{Fake News detection Using Machine Learning}}
+
+Em \cite{baarir2020} os autores apresentam um método para detecção de \textit{fake news} que utiliza: \\
+
+\begin{enumerate}
+    \item \textbf{Pré-processamento de texto} que consiste do uso de \textit{stemmers}, remoção de \textit{stop words} e caracteres especiais;
+    \item \textbf{\textit{Encoding} do texto} utilizando modelos de \textit{bag of words}, \textbf{N-gram} e \textit{TF-IDF}
+    \item \textbf{Extração de características} que permite uma identificação precisa de informações falsas. Foram utilizados como \textit{features} a fonte da notícia, o autor, a data e o sentimento do texto.
+    \item \textbf{\textit{Support Vector Vachine}} Um algoritmo de aprendizado de máquina supervisionado vastamente utilizado em problemas de classificação.
+\end{enumerate}
+
+
+\subsubsection{Sistema proposto}
+
+O sistema proposto usa como entrada uma base de dados de comentarios e metadados, tais como, data, fonte e autor. Essa informação era entçao transformada em \textit{features} que podiam ser usadas na etapa de aprendizagem. 
+
+A base de dados processada era dividida em duas partes: a primeira, que é utilizada para treinamento, e a segunda, que é utilizada para teste. O modulo de treinamento utiliza os dados de treinamento e o algoritmo \textit{SVM} para construir um modelo de decisão que pode ser aplicado a base de dados de teste. Se o modelo for aceito, isto é, for capaz de alcançar um nível de acurácia aceitavel, ele pode ser mantido e utilizado quando o treinamento terminar. Caso contrário, os parametros do algorítmo de aprendizado são tunados de modo a aprimorar a acurácia do modelo. O modelo proposto pode ser visto na Figura \ref{fig:mesh1}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Imagens/revisao informal/modelo1.png}
+    \caption{Modelo de aprendizado}
+    \label{fig:mesh1}
+\end{figure}
+
+
+
+\subsubsection{Pré-processamento}
+
+Na base de dados utilizada, as características das noticias são classificadas em três categorias: dados textuais, dados categóricos e dados numéricos. \\
+
+\textbf{Dados Textuais}: Estes são os dados que representam o texto escrito pelo autor. O pré-processamento desses dados consites das seguintes operações: \\
+
+\begin{enumerate}
+    \item \textbf{Limpeza}: Elimina \textit{stop words} e caractéres especiais;
+    \item \textbf{\textit{Steming}}: Transforma as palavras úteis em radicais;
+    \item \textbf{\textit{Encoding}}: transforma todas as palavras do texto em um vetor numérico. Esta etapa necessita de dois passos: A combinação de duas técnicas, especificamente, \textit{bag-of-words} \cite{gerard1983} e \textit{N-grams} \cite{chris1985}, então a aplicação do método \textit{TF-IDF} \cite{juan2003} no resultado. \\
+\end{enumerate} 
+
+
+\textbf{Dados Categóricos}: 
+
+
+Dados categóricos. Representam a fonte das notícias tais como canal de TV, jornal ou revista, e seu autor. O pré-tratamento desses dados é realizado através de dois passos:
+
+\begin{enumerate}
+    \item \textbf{Limpeza}: eliminando caracteres especiais e transformando os caracteres para \textit{lowercase}.
+    \item \textbf{Codificação}:  para fontes foram utilizados uma codificação de \textit{labels}. Por autores, foi criada uma codificação para converter os nomes do autor em números digitais, de modo que autores da mesma fonte estão próximos uns dos outros comparação com autores de outras fontes. \\
+
+\end{enumerate}
+
+
+
+
+\textbf{Dados Numéricos}: Representam a data da notícia e o sentimento dado pelo texto. A data foi utilizada como 3 valores numéricos distintos, o dia, o mês e o ano da postagem da notícia. Para o sentimento dado pelo texto, foi calculado a soma dos graus de sentimento das palavras. De acordo com experts, cada palavra possui um grau de sentimento que permite com que ela seja classificada em três classes: \textit{(i)} Se a soma for menor que zero, o sentimento é negativo; \textit{(ii)} Se a soma for maior que zero, o sentimento é positivo; \textit{(iii)} se a somar for 0, o sentimento é neutro.
+
+
+\subsubsection{\textit{Dataset}}
+
+O \textit{Dataset} utilizado foi uma combinação de dois \textit{datasets} existentes  "Getting Real about
+Fake News" \cite{fakenews2016} e "All the news" \cite{allthenews2017}. Estes \textit{datasets} foram obtidos do website \textit{Kaggle}. Após pré-processar os dois conjuntos de dados e testar os recursos um a um até atingir a melhor taxa de precisão. foi obtido um conjunto de dados que contém as seguintes características:
+
+\begin{itemize}
+    \item 5 palavras obtidas pelo método do saco de palavras,
+    \item 3 palavras compostas obtidas pelo método N-gram,
+    \item data: dia, mês e ano,
+    \item sentimento,
+    \item fonte,
+    \item autor,
+    \item classe: falsa ou real. \\
+\end{itemize}
+
+\subsubsection{Resultados}
+
+
+

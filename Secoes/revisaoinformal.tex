@@ -172,6 +172,12 @@ Fake News" \cite{fakenews2016} e "All the news" \cite{allthenews2017}. Estes \te
 \end{itemize}
 
 \subsubsection{Resultados}
+Este artigo apresentou um método de detecção de notícias falsas usando o algoritmo máquina de vetor de suporte (\textit{SVM}), tentando determinar os melhores recursos e técnicas para detectar notícias falsas. Por meio da pesquisa realizada durante este estudo, os autores obtiveram os seguintes resultados: \\
 
-
-
+\begin{itemize}
+    \item A influencia da \textit{feature} "sentimento" na acurácia foi quase insignificante, oque parece ser bem lógico pois uma notícia ter um sentimento positivo ou negativo não está relacionado com a veracidade de sua informação.
+    \item Os melhores recursos para detectar notícias falsas estão em ordem: texto, autor, fonte, data e sentimento.
+    \item o método N-gram dá um resultado melhor do que o \textit{bag of words} com conjuntos de dados volumosos e com textos grandes;
+    \item O \textit{SVM} parece ser o melhor algoritmo para detectar notícias falsas, porque deu uma melhor taxa de reconhecimento, e permitiu a dar para cada informação um grau de confiança para a sua classificação.
+    \item os parâmetros que mais influenciam a máquina de vetor de suporte são respectivamente: Custo C, gama $\gamma$ e épsilon $\epsilon$. \\
+\end{itemize}

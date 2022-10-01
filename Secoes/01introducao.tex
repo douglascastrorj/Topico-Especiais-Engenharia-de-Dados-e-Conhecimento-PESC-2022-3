@@ -1,11 +1,14 @@
 \section{Introdução}
 
+Atualmente, dado o alcance das plataformas de comunicação como Twitter, Facebook, Youtube e afins, disseminar um conhecimento ou uma informação torna-se instantâneo, bastando apenas um clique. Tal fato acaba se tornando um problema que contribui para a disseminação rápida e desenfreada de notícias falsas e outras formas de desinformação. Dado este fato, este trabalho almeja atacar o problema da ``Detecção de \textit{Fake News}'' de modo a avaliar diferentes algorítmos de aprendizado de máquina e técnicas de \textit{NLP - \textit{Natural Language Processing}}. \\
 
-Este artigo visa 
+% Com o avanço da tecnologia, torna-se cada vez mais fácil falsificar áudios e vídeos, levando as \textit{fake} news a uma nova e mais preocupante fase conhecida como \emph{Deepfake} que é uma técnica de síntese de imagens humanas baseadas em inteligência  artificial que é usada para sobrepor imagens ou vídeos existentes em outros criando, desta forma, uma informação adulterada que pode ser utilizada em âmbito político, criação de \textit{fakenews}, escandalos pornográficos com celebridades, etc.
 
-Primeiro parágrafo diz o que o artigo faz.
+O problema gerado pela disseminação de \textit{fake news} se torna mais impactante quando olhamos para temas mais sensíveis como, por exemplo, política ou o mercado financeiro. Nesse contexto a disseminação de notícias falsas pode acarretar diversos problemas. O problema da disceminação desenfreada de notícias falsas deve ser combatido, dado este fato, o Congresso Nacional instalou uma comissão parlamentar mista de inquérito (CPMI)  para apurar a divulgação de informações falsas. \footnote{\url{https://g1.globo.com/politica/noticia/2019/09/04/congresso-instala-comissao-para-investigar-divulgacao-de-informacoes-falsas.ghtml}} Com base neste fato, a utilização de sistemas de identificação de notícias falsas faz-se fundamental para redução da disseminação dessas fontes de desinformação.
 
-Próximos parágrafos fazem uma introdução ao artigo.
+% Primeiro parágrafo diz o que o artigo faz.
+
+% Próximos parágrafos fazem uma introdução ao artigo.
 
 \subsection{Motivação}
 
@@ -24,11 +27,13 @@ Segundo \cite{allcot2017}, que fizeram um estudo a respeito da disceminação de
 Esta parece ter sido a principal motivação para a maioria dos produtores cujas identidades foram reveladas. 
 A segunda motivação é ideológica pois alguns provedores de notícias falsas procuram promover os candidatos que preferem. \\
 
-Além de impactos sociais e políticos, as \textit{fake news} também podem impactar de forma significativa o mercado financeiro. Prova disso foi o ``Joesley Day'' (\cite{shsinvestimentos2020}) que aconteceu em 2017. Na ocasião, um áudio gravado pelo dono da JBS - que fazia parte de uma delação premiada - registrava o então presidente Michel Temer dando carta branca para comprar o silêncio do ex-deputado Eduardo Cunha, que estava preso por corrupção na operação Lava Jato. Os investidores se desesperaram com a possibilidade de renúncia do presidente e o mercado afundou com os dois pés. O áudio era fake? Não. Só que Joesley sabia o que tinha nas mãos e manipulou o vazamento dele pra ganhar no mercado financeiro através da compra antecipada de dólares. Ele comprou US\$ 3 bilhões e como a moeda disparou, teve um lucro na casa dos US\$ 100 milhões, enquanto muitos investidores agressivos simplesmente quebraram.
+Além de impactos sociais e políticos, as \textit{fake news} também podem impactar de forma significativa o mercado financeiro. Prova disso foi o ``Joesley Day'' \footnote{\url{https://www.shsinvestimentos.com.br/artigos-shs/fake-news-e-o-mercado-financeiro-entenda-como-elas-afetam-as-operacoes}} que aconteceu em 2017. Na ocasião, um áudio gravado pelo dono da JBS - que fazia parte de uma delação premiada - registrava o então presidente Michel Temer dando carta branca para comprar o silêncio do ex-deputado Eduardo Cunha, que estava preso por corrupção na operação Lava Jato. Os investidores se desesperaram com a possibilidade de renúncia do presidente e o mercado afundou com os dois pés. O áudio era fake? Não. Só que Joesley sabia o que tinha nas mãos e manipulou o vazamento dele pra ganhar no mercado financeiro através da compra antecipada de dólares. Ele comprou US\$ 3 bilhões e como a moeda disparou, teve um lucro na casa dos US\$ 100 milhões, enquanto muitos investidores agressivos simplesmente quebraram.
 
 \subsection{Objetivo}
 
-Aqui deve ser dito ou o objetivo, ou as questões de pesquisa ou as hipóteses.
+% Aqui deve ser dito ou o objetivo, ou as questões de pesquisa ou as hipóteses.
+
+Este trabalho tem como objetivo fazer uma breve revisão da literatura a fim de identificar o estado da arte a respeito do assunto de detecção de notícias falsas, mais específicamente: (i) Quais são as abordagens mais utilizadas em termos de modelagem do problema (Problema de classificação ou regressão); (ii) Quais as técnicas de processamento de linguagem natural e os algoritmos de aprendizado de máquina que são mais eficazes para esta tarefa; (iii) e por fim, executar experimentos utilizando a rede neural \textbf{BERT} e realizar uma comparação com os métodos utilizados na literatura.
 
 % \section{Comentários sobre este modelo}
 

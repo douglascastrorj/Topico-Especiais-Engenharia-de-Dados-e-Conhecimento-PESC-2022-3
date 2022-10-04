@@ -1,10 +1,16 @@
 \section{Introdução}
 
-Atualmente, dado o alcance das plataformas de comunicação como Twitter, Facebook, Youtube e afins, disseminar um conhecimento ou uma informação torna-se instantâneo, bastando apenas um clique. Tal fato acaba se tornando um problema que contribui para a disseminação rápida e desenfreada de notícias falsas e outras formas de desinformação. Dado este fato, este trabalho almeja atacar o problema da ``Detecção de \textit{Fake News}'' de modo a avaliar diferentes algorítimos de aprendizado de máquina e técnicas de \textit{NLP - \textit{Natural Language Processing}}. \\
+Atualmente, dado o alcance das plataformas de comunicação como Twitter, Facebook, Youtube e afins, disseminar um conhecimento ou uma informação torna-se instantâneo, bastando apenas um clique. 
+Tal fato acaba se tornando um problema que contribui para a disseminação rápida e desenfreada de notícias falsas e outras formas de desinformação. 
+Dado este fato, este trabalho ataca o problema da ``Detecção de \textit{Fake News}''\cite{ZHANG2020102025} de modo a avaliar diferentes algorítimos de aprendizado de máquina e técnicas de \textit{NLP - \textit{Natural Language Processing}}. \\
 
 % Com o avanço da tecnologia, torna-se cada vez mais fácil falsificar áudios e vídeos, levando as \textit{fake} news a uma nova e mais preocupante fase conhecida como \emph{Deepfake} que é uma técnica de síntese de imagens humanas baseadas em inteligência  artificial que é usada para sobrepor imagens ou vídeos existentes em outros criando, desta forma, uma informação adulterada que pode ser utilizada em âmbito político, criação de \textit{fakenews}, escandalos pornográficos com celebridades, etc.
 
-O problema gerado pela disseminação de \textit{fake news} se torna mais impactante quando olhamos para temas mais sensíveis como, por exemplo, política ou o mercado financeiro. Nesse contexto a disseminação de notícias falsas pode acarretar diversos problemas. O problema da disceminação desenfreada de notícias falsas deve ser combatido, dado este fato, o Congresso Nacional instalou uma comissão parlamentar mista de inquérito (CPMI)  para apurar a divulgação de informações falsas. \footnote{\url{https://g1.globo.com/politica/noticia/2019/09/04/congresso-instala-comissao-para-investigar-divulgacao-de-informacoes-falsas.ghtml}} Com base neste fato, a utilização de sistemas de identificação de notícias falsas faz-se fundamental para redução da disseminação dessas fontes de desinformação.
+O problema gerado pela disseminação de \textit{fake news} se torna mais impactante quando olhamos para temas mais sensíveis como, por exemplo, política ou o mercado financeiro.
+Nesse contexto a disseminação de notícias falsas pode acarretar diversos problemas. 
+A disseminação desenfreada de notícias falsas deve ser combatido, dado este fato, o Congresso Nacional instalou uma comissão parlamentar mista de inquérito (CPMI)  para apurar a divulgação de informações falsas 
+\cite{g12019}
+Com base neste fato, a utilização de sistemas de identificação de notícias falsas faz-se fundamental para redução da disseminação dessas fontes de desinformação.
 
 % Primeiro parágrafo diz o que o artigo faz.
 
@@ -17,23 +23,31 @@ O problema gerado pela disseminação de \textit{fake news} se torna mais impact
 % Deve ser indicado um ``gap'' que será investigado, se houver.
 
 As notícias falsas que se espalham pelos meios de comunicação representam uma ameaça real à confiabilidade das informações.
-A informação e a detecção de notícias falsas têm atraído cada vez mais atenção nos últimos anos. Notícias falsas
-são normalmente escritas intencionalmente para enganar os leitores, o que determina que a detecção de notícias falsas
-meramente baseado em conteúdo de notícias é tremendamente desafiador. Enquanto isso, as notícias falsas podem
+A informação e a detecção de notícias falsas têm atraído cada vez mais atenção nos últimos anos. 
+Notícias falsas são normalmente escritas intencionalmente para enganar os leitores, o que determina que a detecção de notícias falsas 
+meramente baseado em conteúdo de notícias é  desafiador.
+Além isso, as notícias falsas podem
 conter evidências verdadeiras para zombar de notícias verdadeiras e apresentar diferentes graus de falsidade, o que ainda
 agrava a dificuldade de detecção \cite{karimi2018}. \\
 
-Segundo \cite{allcot2017}, que fizeram um estudo a respeito da disseminação de \textit{fake news} nas redes sociais durante as eleições presidenciais dos Estados Unidos de 2016, parecem existir duas motivações principais para disseminação de \textit{fake news}. A primeira é pecuniária: artigos de notícias que se tornam virais nas mídias sociais podem atrair anúncios significativos aumentar a receita quando os usuários clicam no site original. 
+Segundo \cite{allcot2017}, que fizeram um estudo a respeito da disseminação de \textit{fake news} nas redes sociais durante as eleições presidenciais dos Estados Unidos de 2016, parecem existir duas motivações principais para disseminação de \textit{fake news}. 
+A primeira é pecuniária: artigos de notícias que se tornam virais nas mídias sociais podem atrair anúncios significativos e aumentar a receita quando os usuários clicam no site original. 
 Esta parece ter sido a principal motivação para a maioria dos produtores cujas identidades foram reveladas. 
-A segunda motivação é ideológica pois alguns provedores de notícias falsas procuram promover os candidatos que preferem. \\
+A segunda motivação é ideológica pois alguns provedores de notícias falsas procuram promover os candidatos que preferem. 
 
-Além de impactos sociais e políticos, as \textit{fake news} também podem impactar de forma significativa o mercado financeiro. Prova disso foi o ``Joesley Day'' \footnote{\url{https://www.shsinvestimentos.com.br/artigos-shs/fake-news-e-o-mercado-financeiro-entenda-como-elas-afetam-as-operacoes}} que aconteceu em 2017. Na ocasião, um áudio gravado pelo dono da JBS - que fazia parte de uma delação premiada - registrava o então presidente Michel Temer dando carta branca para comprar o silêncio do ex-deputado Eduardo Cunha, que estava preso por corrupção na operação Lava Jato. Os investidores se desesperaram com a possibilidade de renúncia do presidente e o mercado afundou com os dois pés. O áudio era fake? Não. Só que Joesley sabia o que tinha nas mãos e manipulou o vazamento dele pra ganhar no mercado financeiro através da compra antecipada de dólares. Ele comprou US\$ 3 bilhões e como a moeda disparou, teve um lucro na casa dos US\$ 100 milhões, enquanto muitos investidores agressivos simplesmente quebraram.
+Além de impactos sociais e políticos, as \textit{fake news} também podem impactar de forma significativa o mercado financeiro.
+Exemplo disso foi o ``Joesley Day'' \cite{shs2020} que aconteceu em 2017. 
+Na ocasião, um áudio gravado pelo dono da JBS - que fazia parte de uma delação premiada - registrava o então presidente Michel Temer dando carta branca para comprar o silêncio do ex-deputado Eduardo Cunha, que estava preso por corrupção na operação Lava Jato.
+Os investidores se desesperaram com a possibilidade de renúncia do presidente e o mercado caiu. 
+O áudio era falso? Não. 
+Só que Joesley sabia o que tinha nas mãos e manipulou o vazamento dele pra ganhar no mercado financeiro através da compra antecipada de dólares. 
+Ele comprou US\$ 3 bilhões e como a moeda disparou, teve um lucro na casa dos US\$ 100 milhões, enquanto muitos investidores agressivos simplesmente quebraram.
 
 \subsection{Objetivo}
 
 % Aqui deve ser dito ou o objetivo, ou as questões de pesquisa ou as hipóteses.
 
-Este trabalho tem como objetivo fazer uma breve revisão da literatura a fim de identificar o estado da arte a respeito do assunto de detecção de notícias falsas, mais especificamente: (i) Quais são as abordagens mais utilizadas em termos de modelagem do problema (Problema de classificação ou regressão); (ii) Quais as técnicas de processamento de linguagem natural e os algoritmos de aprendizado de máquina que são mais eficazes para esta tarefa; (iii) e por fim, executar experimentos utilizando a rede neural \textbf{BERT} e realizar uma comparação com os métodos utilizados na literatura.
+Este trabalho tem como objetivo fazer uma breve revisão da literatura a fim de identificar o estado da arte a respeito da detecção de notícias falsas, mais especificamente: (i) Quais são as abordagens mais utilizadas em termos de modelagem do problema (Problema de classificação ou regressão); (ii) Quais as técnicas de processamento de linguagem natural e os algoritmos de aprendizado de máquina que são mais eficazes para esta tarefa. A partir desse levantamento, foi possível  (iii) executar experimentos utilizando a rede neural \textbf{BERT} e realizar uma comparação com os métodos utilizados na literatura.
 
 % \section{Comentários sobre este modelo}
 

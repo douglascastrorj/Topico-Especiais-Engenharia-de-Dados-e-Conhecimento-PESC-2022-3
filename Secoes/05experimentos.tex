@@ -5,6 +5,7 @@
 Todos experimentos foram realizados em uma máquina com as seguintes configurações: 
 
 \begin{itemize}
+    \item Sistema Operacional: Ubuntu 22.04.1 LTS
     \item Processador: Intel core i9 9900
     \item RAM: 24 GB
     \item Placa de Vídeo: GTX 1660
@@ -17,9 +18,7 @@ Durante a execução do experimento o modelo foi treinado por 5 épocas e utiliz
 
 O pré-processamento utilizado no primeiro experimento foi a remoção de \textit{stop-words}, remoção de acentuação e de pontuação. Para esse primeiro experimento o modelo foi capaz de atingir uma taxa de 93.3\% de acurácia.
 
-Para o segundo experimento, foi utilizado o texto completo da notícia. Vale ressaltar que como o bert aceita no máximo 512 tokens como \textit{input}, o texto pode ser truncado caso o número total de tokens exceda esse valor. Esse experimento conseguiu valores acima de 99\% de acurácia.
-
-A Tabela \ref{table:comparativobert} contrapõe os resultados obtidos pelos experimentos realizados por este artigo e os de \citet{Silva2020} com o propósito de comparar a performance do BERT e dos melhores resultados obtidos sobre esse \textit{dataset}.
+Para o segundo experimento, foi utilizado o texto completo da notícia. Vale ressaltar que como o BERT aceita no máximo 512 tokens como \textit{input}, o texto pode ser truncado caso o número total de tokens exceda esse valor. Esse experimento conseguiu valores acima de 99\% de acurácia. De modo a obter um resultado mais confiável, esse experimento foi executado 10 vezes e a seguir foi calculada a média das pontuações dos escores \textit{precision}, \textit{recall} e \textit{F1}. A Tabela \ref{table:comparativobert} contrapõe os resultados obtidos pelos experimentos realizados por este artigo e os de \citet{Silva2020} com o propósito de comparar a performance do BERT e dos melhores resultados obtidos sobre esse \textit{dataset}.
 
 
 \begin{table}
@@ -30,9 +29,9 @@ A Tabela \ref{table:comparativobert} contrapõe os resultados obtidos pelos expe
  \hline
  Algoritmo & Precision & Recall & F1-Score\\
  \hline
- BERT & X & X & X \\
+ BERT & 0.991 & 0.991 & 0.991 \\
  SVM & 0.958 & 0.979 & 0.968 \\
- LOGISTIC REGRESSION & 0.964 & 0.976 & 0.971  \\
+ LR & 0.964 & 0.976 & 0.971  \\
  \hline
 \end{tabular}
 \end{table}

@@ -1,11 +1,92 @@
 \section{Trabalhos Correlatos}
 
-Aqui o foco nos trabalhos similares e seus resultados.
 
-Deve conter uma tabela que tenha os trabalhos em uma dimensão e as características dos trabalhos em outra dimensão.
 
-O objetivo daqui é estabelecer o estado da arte que o artigo se propõe a melhorar ou indicar novos caminhos.
+% Aqui deve conter:
+% \begin{itemize}
+%     \item uma revisão da teoria necessária para entender o artigo;
+%     \item se possível, um histórico das soluções, ou uma taxonomia.\\
+% \end{itemize}
 
+
+Esta seção destina-se a fazer uma breve análise da literatura sobre o tema de \textit{fake news} e tem como objetivo identificar quais são os algoritmos de \textit{machine learning} e técnicas de \textit{NLP} que estão sendo utilizados para atacar esse problema.
+
+% \todo[inline]{Descrever como obteve os artigos... Query, mecanismos de consulta usados, padrões para aceitar ou recursar, quantos em cada etapa (início, título, resumo, texto}
+
+A revisão foi realizada com auxílio da ferramenta \cite{parsifal} utilizando a seguinte string de busca ``TITLE-ABS-KEY ( ( "fake news detection"  OR  "fake news classification" )  AND  ( "machine learning" )  AND  ( "NLP"  OR  "natural language processing" )  AND  ( "social network"  OR  "Twitter" ) )''. Essa string foi executada sobre a base \cite{scopus}. A fim de reduzir o número de artigos a serem analisados, apenas artigos dos últimos 5 anos foram considerados. Com isso foram obtidos 43 artigos que, após a análise do títulos e resumos, foram reduzidos aos artigos presentes nesta revisão.
+
+\citet{parikh2019} definiram três hipóteses com foco em aprender e entender a origem, disseminação e tom das notícias falsas. Os resultados dessas hipóteses sugerem o seguinte: 1) as notícias falsas não são publicadas em sites populares, mas sim em veículos ou sites menos conhecidos; 2) notícias falsas são mais disseminadas por usuários não verificados do que por usuários verificados; e 3) as notícias falsas são escritas em um tom linguístico específico, embora seja inconclusivo dizer qual (negativo, positivo ou neutro). 
+O resultado da terceira hipótese pode nos fazer indagar sobre se o uso da análise de sentimentos poderia, de alguma forma, nos auxiliar na detecção de \textit{fake news}. 
+Entretanto,  \citet{baarir2020} mostraram que utilizar o sentimento presente no texto não auxilia na detecção de \textit{fake news} pois, segundo eles, uma notícia ter um sentimento positivo ou negativo não está relacionado com a veracidade de sua informação.
+Logo essa simples distinção entre sentimento negativo, positivo ou neutro não é o bastante para a detecção de \textit{fake news}.
+
+
+\citet{DeMagistris2022},  criaram um modelo que utilizava \textit{stance detection} para auxiliar o algoritmo de detecção de \textit{fake news}. 
+O modelo consistia dos seguintes passos: 
+\begin{enumerate}
+    \item  O usuário submetia uma \textit{query} a ser categorizada em uma macro-categoria e baseado no resultado desta classificação o sistema selecionava apenas os artigos relevantes para esse tópico específico; 
+    \item Uma sub-categoria era assinalada para a \textit{query} com o propósito de reduzir ainda mais o número de documentos que contribuirão para a avaliação; 
+    \item O modelo utilizava reconhecimento de entidades nomeadas (\textit{NER}) para filtrar os documentos; 
+    \item Por fim a \textit{query} era comparada com os documentos relevantes utilizando \textit{embedding} e similaridade de cosenos e os \textit{top-k} documentos mais similares eram utilizados para \textit{stance classification}. 
+    \end{enumerate}
+    Entretanto os autores afirmam que \textit{stance detection} não ajuda na detecção de \textit{fake news}.
+
+
+\citet{Wu2021530}, e \citet{Mouratidis20211} combinaram técnicas de \textit{NLP} com \textit{features} oriundas das redes sociais, como por exemplo, \textit{Graph Embedding technique (GEB)} que representa a disseminação da notícia na rede, data da criação da conta do usuário que esta disseminando a notícia, numero de seguidores desse usuário, data do \textit{tweet}, quantidade de \textit{retweets}, quantidade de urls presentes no \textit{tweet}, etc. 
+Esses trabalhos mostraram que \textit{features} oriundas das redes sociais ajudam na detecção de \textit{fake news}.
+
+Em \citet{SelvaBirunda2021406} os autores propuseram uma estrutura de definição de metas para detectar as \textit{fake news} que consistia das seguintes etapas: (i) Para extrair os recursos baseados em texto de nível superior de artigos de notícias genuínos e falsos usando TF-IDF; (ii) Extrair os recursos site\_url de site\_url (domínio); (iii) Estimar uma pontuação de credibilidade de recursos de URL no site baseados em várias fontes e, por fim, (iv) Estimar a credibilidade das notícias integrando os recursos baseados em texto e os Pontuações de Credibilidade. Os autores realizaram experimentos com diversos algoritmos como : SVM, KNN, Naïve Bayes, Logistic Regression, Random Forest, AdaBoost, Decision Tree e, por fim, Gradient Boosting que obteve o melhor resultado com uma acurácia de 99.5%.
+
+\citet{Mouratidis20211} Criaram um modelo de \textit{deep learning} que utiliza (i) \textit{features} linguísticas como: Quantidade de palavras, Quantidade de sílabas, quantidade media de sílabas, quantidade média de palavras por frase, quantidade de palavras grandes, quantidade de frases longas, quantidade de frases curtas, quantidade de frases na noticia, taxa de advérbios e adjetivos; (ii) Baseado em informações do usuário como: Id do usuário, quantidade de seguidores, número de pessoas que o usuário segue, data da criação da conta, data do \textit{tweet}, quantidade de \textit{likes}, quantidade de \textit{retweets}, quantidade de URLs. Segundo os autores, o alto desempenho da detecção de notícias falsas na literatura depende em grande parte da exploração de recursos exclusivamente baseados em contas de usuários ou na exploração de recursos exclusivamente linguísticos. Em contrapartida, esse trabalho dá grande ênfase ao uso de entrada multimodal que varia de incorporação de palavras derivadas automaticamente de texto não estruturado a recursos morfológicos e baseados em string (número de sílabas, número de frases longas, etc.), e de recursos linguísticos de nível superior (como o nível Flesh-Kincaid, a taxa de advérbios-adjetivos etc.).
+
+\citet{Setiawan2021} construíram um \textit{dataset} relacionado ao tema de publicidade e avaliaram o dataset com modelos de aprendizado de maquina e técnicas de \textit{NLP} tais como, TF-IDF, BoW, n-gramas (1-gram até 4-gram). 
+Esse trabalho mostrou que o uso de n-gramas auxilia no processo de detecção de \textit{fake news}.
+
+% \todo[inline]{descreve o artigo sobre português}
+
+Em \citet{Silva2020}, os autores pontuam que há uma falta de conjuntos de dados rotulados de notícias falsas em outros idiomas e, além disso, questões importantes ainda permanecem aberto, como por exemplo, não há consenso sobre quais são as melhores estratégias de classificação e conjuntos de recursos a serem usados para detecção automática de notícias falsas. Para responder a esta e outras importantes perguntas, eles apresentaram um novo conjunto de dados público de notícias verdadeiras e falsas rotuladas em português e realizaram uma análise abrangente dos métodos de aprendizado de máquina para detecção de notícias falsas. Seguem abaixo os resultados obtidos por esse trabalho:
+\begin{enumerate}
+    \item Os algoritmos \textit{ Regressão Logística, SVM} e \textit{Random Forest} foram os que obtiveram os melhores resultados;
+    \item Surpreendentemente, os resultados usando \textit{Bag-of-Words}, em geral, superaram os resultados obtidos usando recursos de base linguística e até mesmo os resultados obtidos pelo \textit{Word2Vec} e \textit{FastText} de última geração;
+    \item Combinação de \textit{Bag-of-Words} com \textit{features} linguísticas é benéfica para detectar notícias falsas;
+    
+    \item O tamanho médio das notícias verdadeiras é maior do que das notícias falsas e a utilização dos textos completos teve um desempenho superior aos resultados obtidos utilizando os textos truncados.  Então, eles acreditam que pode haver um viés no conjunto de dados em relação ao tamanho do texto e, portanto, o resultados com os textos truncados provavelmente representam melhor os resultados que seriam obtidos em uma aplicação do mundo real. Classificadores treinados com textos completos podem ser facilmente enganados por pessoas que escrevem notícias falsas caso elas escrevam textos falsos mais longos.
+\end{enumerate}
+
+
+% \todo[inline]{tabela comparativa com os datasets, algoritmos, pré-processamento}
+
+\begin{table}
+ \label{table:tablecomparativa1}
+ \caption{Comparação dos Trabalhos Relacionados}
+ \footnotesize
+\begin{tabular}{p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}p{.2\textwidth}}
+
+ \toprule
+ \textbf{Trabalho}& \textbf{Algoritmos} & \textbf{Técnicas de pré-processamento}&\textbf{Datasets}\\
+ \midrule
+ \citet{parikh2019}   &  Sentiment Analysis   & NER, Stance Detection & FakeNewsNet, PolitiFact, BuzzFeed  \\
+ \citet{baarir2020}&   LSVM  & Sentiment Analysis, Remoção de stopwords, Steaming, TF-IDF   & Getting Real about Fake News, All the News \\
+ \citet{DeMagistris2022} & LSTM, PCA & doc2vec & COVID-19  \\
+ \citet{Wu2021530}  & CNN, LR & TF-IDF, N-GRAM, WORD2VEC, Análise de redes sociais  & FakeNewsNet \\
+ \citet{Mouratidis20211}& NB, RF, SVM, LR, Deep Learning (SMOTE)    & Features Linguisticas & LIAR \\
+ \citet{SelvaBirunda2021406}&  SVM, KNN, NB, LR, RF, AdaBoosting, DT, GradientBoosting & tokenization, stopwords, lowecasing, Remoção de pontuação, TF-IDF, Credibilidade do autor & Coletado do \cite{kaggle} (Não especificado)\\
+ \citet{Setiawan2021}& SVM  & TF-IDF, BOW, N-GRAM & Dataset único coletado pelos pesquisadores \\
+ \citet{Silva2020}&  LR, SVM, RF, DT, NB  & BoW, Word2Vec, FastText, Features Linguisticas & FakeBr. Corpus\\
+ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Considerações finais sobre a revisão}
+
+Como podemos ver na Tabela \ref{table:tablecomparativa1}, Os algoritmos de aprendizado de máquina tradicionais, tais como: SVM, Naive Bayes, Logistic Regression, etc. são amplamente utilizados pelos trabalhos contidos nesta revisão. Por outro lado, são poucos os trabalhos que utilizam \textit{Deep Learning} para a detecção de \textit{fake news}. Como por exemplo o trabalho de \citet{Mouratidis20211}.
+
+A respeito das técnicas de pré-processamento utilizadas por esses trabalhos, podemos observar que o uso de técnicas de NLP mais comuns como, BoW, TF-IDF, N-GRAM auxiliam na tarefa de detecção de \textit{fake news}, bem como \textit{features} linguísticas e informações a respeito do autor da noticia e do usuário que está propagando essa noticia (para o caso do contexto de redes sociais).  Entretanto, ``Analise de sentimentos'' e ``Stance Detection''  não ajudam na tarefa de detecção de \textit{fake news} como foi mostrado em \citet{baarir2020} e \citet{DeMagistris2022} respectivamente. 
+
+Os trabalhos presentes nesta revisão utilizaram diversos algoritmos de aprendizado de máquina. Contudo, vale ressaltar que os algoritmos \textit{Logistic Regression, SVM, Random Forest} e os que utilizavam de \textit{Deep Learning} se sobressaíram dentre os demais.
+
+
+\todo[inline]{Faça aqui um resumo dos melhores resultados obtidos e com que algoritmos e bases, pode ser outra tabela só com os melhores, ou pode ser uma segunda tabela, maior que a primeira, ou pode ser uma lista apenas com os melhores, principalmente os que estão em valores difíceis de separar com diferença só na casa decimal ou 91\% e 92\%}
 
 
 

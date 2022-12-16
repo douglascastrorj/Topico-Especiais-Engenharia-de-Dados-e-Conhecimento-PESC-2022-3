@@ -1,7 +1,7 @@
 \section{Proposta}
 
 
-Este trabalho ataca o problema da detecção de \textit{fake news} binário na língua portuguesa Utilizando a rede Neural BERT. Esta seçâo visa contextualizar alguns tópicos como, por exemplo: Definiçâo do problema; Qual é a base de dados utilizada; Qual o modelo proposto.
+Este trabalho ataca o problema da detecção de \textit{fake news} binário na língua portuguesa utilizando a rede Neural BERT. Esta seçâo visa contextualizar alguns tópicos como, por exemplo: definiçâo do problema; qual é a base de dados utilizada; qual o modelo proposto.
 
 % Aqui entram a descrição detalhada do problema sendo tratado e o plano de Solução.
 
@@ -14,26 +14,23 @@ Este trabalho ataca o problema da detecção de \textit{fake news} binário na l
 
 Dado um artigo de notícia $n$, a tarefa de detecção de notícias falsas é prever se essa notícia $n$ é falsa ou verdadeira, isto é,
 
-\begin{center}
-    $F(n) =$
-    \left\{
-    	\begin{array}{ll}
-    		0  & \mbox{se } \textit{n é uma notícia falsa} \\
-    		1 & \textit{Caso contrário}
-    	\end{array}
-   
-\end{center}
+\begin{equation}
+    F(n) =  \begin{cases}
+    		0  , \textrm{se } n \textrm{ é uma notícia falsa} \\
+    		1 , \textrm{ caso contrário}
+    	\end{cases}
+\end{equation}
 
 onde $F$ é a função de previsão que queremos aprender.
 
 \subsection{Dataset}
 
-A base de dados utilizada por este trabalho é a \textit{The Fake Br. Corpus}  que foi desenvolvida por \citet{Silva2020}. Esse \textit{dataset} possui um total de 7200 notícias, onde metade dessas notícias é falsa e a outra metade é verdadeira. 
+A base de dados utilizada por este trabalho é a \textit{The Fake Br. Corpus}  que foi desenvolvida por \citet{Silva2020}. Esse \textit{dataset} possui um total de 7200 notícias, onde metade dessas notícias é falsa e a outra metade é verdadeira.\xexeo{Essa base deve ser descrita na revisão} 
 
 Essa base de dados possui notícias dos seguintes tópicos: economia, ciência e tecnologia, sociedade e notícias diárias, política, religião e, por fim, TV e celebridades. Contudo, vale ressaltar que os tópicos de política, TV e celebridades e sociedade e notícias diárias constituem a maior parte dos dados. A Figura \ref{fig:news_topic_dataset} apresenta como essas notícias se dispersam em cada um desses tópicos. 
 
 
-\begin{figure}[h]
+\begin{figure}[hbt]
     \centering
     \includegraphics[width=0.85\textwidth]{Imagens/categorias_dataset.png}
     \caption{Frequência das notícias por tópico no Fake Br. Corpus}
@@ -44,18 +41,22 @@ Essa base de dados possui notícias dos seguintes tópicos: economia, ciência e
 
 \subsection{Modelo Proposto}
 
-O modelo proposto faz uso do \textbf{BERT} (Bidirectional Encoder Representations from Transformers) que é uma técnica para processamento de linguagem natural baseada em \textit{Transformers} que foi desenvolvida pela \textit{Google}. Neste trabalho foi utilizado o Bertimbau (\cite{souza2020bertimbau}) que é um modelo pré-treinado do BERT para o portugês brasileiro. Para este trabalho foi escolhido o Modelo Bertimbau-Base que consiste de 12 camadas de \textit{Transformer encoder}, 12 \textit{attention heads}, 768 \textit{hidden size}, e 110M de parâmetros.\\
 
-O modelo proposto foi construido da seguinte maneira: \\
+
+O modelo proposto faz uso do \textbf{BERT} (Bidirectional Encoder Representations from Transformers) que é uma técnica para processamento de linguagem natural baseada em \textit{Transformers} que foi desenvolvida pela \textit{Google}. 
+
+Neste trabalho foi utilizado o Bertimbau (\cite{souza2020bertimbau}) que é um modelo pré-treinado do BERT para o portugês brasileiro. Para este trabalho foi escolhido o Modelo Bertimbau-Base que consiste de 12 camadas de \textit{Transformer encoder}, 12 \textit{attention heads}, 768 \textit{hidden size}, e 110M de parâmetros.\\
+
+O modelo proposto foi construído da seguinte maneira: \\
 \begin{enumerate}
-    \item Primeiramente, devemos processar o texto de modo a transforma-lo em tokens que deveremos enviar para o classificador;
-    \item  Então, extraímos o vetor de \textit{embedding}, de tamanho 768, do token [CLS] provido pelo BERT. (Esse token representa o significado da frase);
+    \item Primeiramente, devemos processar o texto de modo a transformá-lo em \textit{tokens} que deveremos enviar para o classificador;
+    \item  Então, extraímos o vetor de \textit{embedding}, de tamanho 768, do token [CLS] provido pelo BERT. (Esse \textit{token} representa o significado da frase);
     \item A seguir, o utilizamos como \textit{input} para uma camada linear com a função de ativação ReLU;
-    \item Por fim temos um vetor de tamanho 2, cada posição desse vetor corresponde a uma categoria dos \textit{labels} (falsa, verdadeira).\\
+    \item Por fim temos um vetor de tamanho 2, cada posição desse vetor corresponde a uma categoria dos rótulos (falsa, verdadeira).\\
 \end{enumerate}
 
 
-Toda a implementação do modelo foi realizada em python utilizando a biblioteca pytorch e para o loop de treinamento do modelo foram utilizados o otimizador \textit{Adam} do pytorch com \textit{learning rate} de $1e-5$ e o critério \textit{CrossEntropyLoss} também do pytorch utilizando os parâmetros padrões.
+Toda a implementação do modelo foi realizada em Python utilizando a biblioteca Pytorch e para o \textit{loop} de treinamento do modelo foram utilizados o otimizador \textit{Adam} do Pytorch com \textit{learning rate} de $1e-5$ e o critério \textit{CrossEntropyLoss}, também do Pytorch, utilizando os parâmetros padrões.
 
 % For a text classification task, we focus our attention on the embedding vector output from the special [CLS] token. This means that we’re going to use the embedding vector of size 768 from [CLS] token as an input for our classifier, which then will output a vector of size the number of classes in our classification task.
 

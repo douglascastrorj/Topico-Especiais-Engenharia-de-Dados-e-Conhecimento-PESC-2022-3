@@ -16,10 +16,11 @@ Brasil}
 
 % Bibliografia deve ser construida com um arquivo 
 % no formato BibLaTeX (levemente diferente do BibTeX)
-\usepackage[ citestyle=authoryear,articlein=false,
-style=ext-authoryear-comp
-,natbib=true]{biblatex}
+\usepackage[citestyle=authoryear,articlein=false,
+style=ext-authoryear-comp,natbib=true]{biblatex}
 % pode simplesmente trocar o nome do seu arquivo aqui
+
+
 \addbibresource{bibs/referencias.bib}
 
 \usepackage{hyperref}
@@ -36,13 +37,13 @@ style=ext-authoryear-comp
 % \input{Secoes/revisaoinformal}
 
 \input{Secoes/02revisao.tex}
-% \input{Secoes/03trabalhoscorrelatos.tex}
+\input{Secoes/03trabalhoscorrelatos.tex}
 \input{Secoes/04proposta.tex}
 \input{Secoes/05experimentos.tex}
 \input{Secoes/06analisedosresultados.tex}   
 \input{Secoes/07conclusão.tex}
 
-\nocite{*}
+
 \printbibliography
 
 \end{document}

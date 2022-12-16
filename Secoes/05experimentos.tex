@@ -1,5 +1,7 @@
 \section{Experimentos}
 
+\todo[inline]{Uma pequena introdução ao que é a seção, já que fez em outras}
+
 \subsection{Configurações do \textit{setup} em que os experimentos foram executados}
 
 Todos experimentos foram realizados em uma máquina com as seguintes configurações: 
@@ -9,30 +11,30 @@ Todos experimentos foram realizados em uma máquina com as seguintes configuraç
     \item Processador: Intel core i9 9900
     \item RAM: 24 GB
     \item Placa de Vídeo: GTX 1660
-    \item Python 3.x.x
+    \item Python 3.x.x\xexeo{muito x, precisa da informação exata}
 \end{itemize}
 
 \subsection{Avaliação do modelo}
 
-Durante a execução do experimento o modelo foi treinado por 5 épocas e utilizando a GPU e utilizando apenas o texto da notícia, isto é desconsiderando informções de autor, usuário que propagou, etc. A Base de dados foi dividida da seguinte forma: 80\% dos dados para treinamento do modelo 10\% para a validação que ocorria ao final de cada época de treinamento e 10\% para teste. Foram realizados experimentos utilizando o texto com e sem pré processamento e as métricas utilizadas foram acurácia e F1-Score sobre os resultados obtidos no conjunto de teste.
+Durante a execução do experimento o modelo foi treinado por 5 épocas, com GPU, e utilizando apenas o texto da notícia, isto é desconsiderando informações de autor, usuário que propagou, etc. A Base de dados foi dividida da seguinte forma: 80\% dos dados para treinamento do modelo, 10\% para a validação que ocorria ao final de cada época de treinamento e 10\% para teste. Foram realizados experimentos utilizando o texto com e sem pré processamento e as métricas utilizadas foram acurácia e F1-Score sobre os resultados obtidos no conjunto de teste.
 
 O pré-processamento utilizado no primeiro experimento foi a remoção de \textit{stop-words}, remoção de acentuação e de pontuação. Para esse primeiro experimento o modelo foi capaz de atingir uma taxa de 93.3\% de acurácia.
 
-Para o segundo experimento, foi utilizado o texto completo da notícia. Vale ressaltar que como o BERT aceita no máximo 512 tokens como \textit{input}, o texto pode ser truncado caso o número total de tokens exceda esse valor. Esse experimento conseguiu valores acima de 99\% de acurácia. De modo a obter um resultado mais confiável, esse experimento foi executado 10 vezes e a seguir foi calculada a média das pontuações dos escores \textit{precision}, \textit{recall} e \textit{F1}. A Tabela \ref{table:comparativobert} contrapõe os resultados obtidos pelos experimentos realizados por este artigo e os de \citet{Silva2020} com o propósito de comparar a performance do BERT e dos melhores resultados obtidos sobre esse \textit{dataset}.
+Para o segundo experimento, foi utilizado o texto completo da notícia. Vale ressaltar que como o BERT aceita no máximo 512 \textit{tokens} como \textit{input}, o texto pode ser truncado caso o número total de \textit{tokens} exceda esse valor. Esse experimento conseguiu valores acima de 99\% de acurácia. De modo a obter um resultado mais confiável, esse experimento foi executado 10 vezes e a seguir foi calculada a média das pontuações dos escores \textit{precision}, \textit{recall} e \textit{F1}. A Tabela \ref{table:comparativobert} contrapõe os resultados obtidos pelos experimentos realizados por este artigo e os de \citet{Silva2020} com o propósito de comparar a performance do BERT e dos melhores resultados obtidos sobre esse \textit{dataset}.\xexeo{Isso é a média ou o melhor resultado? No seu caso e no caso dele.  Tem que explicar melhor. Tem o desvio padrão?}
 
 
-\begin{table}
+\begin{table}[hbt]
+\centering
+\caption{Comparação dos Resultados}
  \label{table:comparativobert}
-\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
- \hline
- \multicolumn{4}{|c|}{Tabela Comparativa BERT} \\
- \hline
- Algoritmo & Precision & Recall & F1-Score\\
- \hline
+\begin{tabular}{ cccc  }
+ \toprule
+ \textbf{Algoritmo} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score}\\
+\midrule
  BERT & 0.991 & 0.991 & 0.991 \\
  SVM & 0.958 & 0.979 & 0.968 \\
  LR & 0.964 & 0.976 & 0.971  \\
- \hline
+ \bottomrule
 \end{tabular}
 \end{table}
 
